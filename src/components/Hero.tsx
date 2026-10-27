@@ -76,7 +76,6 @@ export default function Hero() {
           <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
             Core Technologies:
           </span>
-          <span className="text-[10px] text-slate-400 font-medium">(Auto-scrolling · Hover to pause)</span>
         </div>
 
         <div className="marquee-container py-1">
