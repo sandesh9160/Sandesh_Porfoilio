@@ -1,26 +1,128 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: var(--font-sans);
+  line-height: 1.55;
+  margin: 0;
+  padding: 0;
+}
+
+/* Vibrant Navbar Gradient matching reference */
+.navbar-gradient {
+  background: linear-gradient(135deg, #e11d48 0%, #ec4899 35%, #06b6d4 100%);
+}
+
+/* Soft Hero Header Gradient */
+.hero-gradient {
+  background: linear-gradient(180deg, #f0f7ff 0%, #fdf2f8 50%, #ffffff 100%);
+}
+
+/* Primary Coral/Orange Button matching reference */
+.btn-coral {
+  background-color: #ff5722;
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.btn-coral:hover {
+  background-color: #e64a19;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px -4px rgba(255, 87, 34, 0.4);
+}
+
+/* Compact White Card */
+.compact-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.compact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 22px -6px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+/* Section Title Accent Line matching reference */
+.title-underline {
+  width: 50px;
+  height: 3.5px;
+  background: #2563eb;
+  border-radius: 2px;
+  margin: 8px auto 0;
+}
+
+/* Auto-scrolling horizontal marquee pills */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Animated Progress bar fill */
+@keyframes fillBar {
+  0% {
+    width: 0%;
+  }
+}
+
+.progress-fill {
+  animation: fillBar 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none;
+    overflow-x: auto;
+  }
+
+  .progress-fill {
+    animation: none;
+  }
 }
