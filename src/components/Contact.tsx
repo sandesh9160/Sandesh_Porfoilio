@@ -15,17 +15,20 @@ export default function Contact() {
     setFormState("submitting");
 
     try {
-      const form = e.currentTarget;
-      const data = new FormData(form);
-      const params = new URLSearchParams();
-      data.forEach((val, key) => {
-        params.append(key, val.toString());
-      });
-
-      const response = await fetch("/", {
+      const response = await fetch(`https://formsubmit.co/ajax/${profile.email}`, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: params.toString(),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Portfolio Message from ${formData.name}`,
+          _template: "table",
+          _captcha: "false",
+        }),
       });
 
       if (response.ok) {
@@ -137,7 +140,7 @@ export default function Contact() {
                 </div>
                 <h4 className="text-sm font-bold text-slate-900">Message Sent Successfully!</h4>
                 <p className="text-xs text-slate-600">
-                  Thank you for reaching out. I will get back to you promptly.
+                  Thank you for reaching out! Your message has been sent directly to {profile.email}. I will get back to you promptly.
                 </p>
                 <button
                   onClick={() => setFormState("idle")}
