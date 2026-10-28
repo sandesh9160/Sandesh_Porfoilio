@@ -18,15 +18,16 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
   title: {
-    default: `${profile.name} | ${profile.title}`,
+    default: `${profile.name} | ${profile.title} | Software Engineer`,
     template: `%s | ${profile.name}`,
   },
-  description: profile.summary,
+  description: profile.metaDescription,
   authors: [{ name: profile.name, url: profile.siteUrl }],
   creator: profile.name,
   keywords: [
     "Sandesh Kenchugundi",
     "Python Full Stack Developer",
+    "Software Developer",
     "Techsprout AI Labs",
     "TeachNow",
     "StartupSaga",
@@ -35,18 +36,19 @@ export const metadata: Metadata = {
     "Next.js Developer",
     "React Developer",
     "MySQL Database Specialist",
+    "REST APIs",
     "Hyderabad Software Developer",
     "MCA Osmania University",
   ],
   alternates: {
-    canonical: "/",
+    canonical: profile.siteUrl,
   },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: profile.siteUrl,
-    title: `${profile.name} | ${profile.title}`,
-    description: profile.summary,
+    title: `${profile.name} | ${profile.title} | Software Engineer`,
+    description: profile.metaDescription,
     siteName: `${profile.name} Portfolio`,
     images: [
       {
@@ -59,8 +61,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} | ${profile.title}`,
-    description: profile.summary,
+    title: `${profile.name} | ${profile.title} | Software Engineer`,
+    description: profile.metaDescription,
     images: ["/profile.jpg"],
   },
   robots: {
@@ -86,7 +88,7 @@ export default function RootLayout({
     "@type": "Person",
     name: profile.name,
     jobTitle: profile.title,
-    description: profile.summary,
+    description: profile.metaDescription,
     url: profile.siteUrl,
     image: `${profile.siteUrl}/profile.jpg`,
     sameAs: [profile.linkedin, profile.github].filter(Boolean),

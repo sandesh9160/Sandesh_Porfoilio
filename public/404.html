@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 - Page Not Found | Sandesh Kenchugundi</title>
+  <meta name="robots" content="noindex, follow">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: linear-gradient(135deg, #e11d48 0%, #ec4899 35%, #06b6d4 100%);
+      height: 64px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    header a.brand {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.025em;
+    }
+    header a.home-btn {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 6px 14px;
+      border-radius: 8px;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 540px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+    .badge-404 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #2563eb;
+      font-size: 28px;
+      font-weight: 800;
+      font-family: monospace;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .bar {
+      width: 48px;
+      height: 4px;
+      background: #2563eb;
+      border-radius: 2px;
+      margin: 0 auto 16px;
+    }
+    p {
+      color: #64748b;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .btn {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary {
+      background: #ff5722;
+      color: #ffffff;
+      box-shadow: 0 2px 4px rgba(255, 87, 34, 0.3);
+    }
+    .btn-primary:hover {
+      background: #e64a19;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: #ffffff;
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-secondary:hover {
+      background: #f8fafc;
+      transform: translateY(-1px);
+    }
+    footer {
+      background: #000306;
+      color: #94a3b8;
+      text-align: center;
+      padding: 20px 16px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="brand">Sandesh Kenchugundi</a>
+    <a href="/" class="home-btn">Return Home</a>
+  </header>
+  <main>
+    <div class="card">
+      <div class="badge-404">404</div>
+      <h1>Page Not Found</h1>
+      <div class="bar"></div>
+      <p>
+        The page you are looking for might have been moved, renamed, or is temporarily unavailable.
+        Explore the portfolio using the links below:
+      </p>
+      <div class="buttons">
+        <a href="/" class="btn btn-primary">&larr; Return to Portfolio</a>
+        <a href="/#projects" class="btn btn-secondary">Featured Projects</a>
+        <a href="/Sandesh-Kenchugundi-Resume.pdf" download class="btn btn-secondary">Download Resume</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; Sandesh Kenchugundi. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

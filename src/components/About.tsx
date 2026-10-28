@@ -12,11 +12,12 @@ export default function About() {
             <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden shadow-xl border-4 border-slate-100 hover:scale-105 transition-transform duration-300">
               <Image
                 src="/profile.jpg"
-                alt="Sandesh Kenchugundi"
-                fill
+                alt="Sandesh Kenchugundi - Python Full Stack Developer"
+                width={224}
+                height={224}
                 priority
-                className="object-cover"
-                sizes="(max-width: 768px) 192px, 224px"
+                className="w-full h-full object-cover"
+                sizes="(max-width: 640px) 192px, 224px"
               />
             </div>
           </div>
@@ -25,7 +26,7 @@ export default function About() {
           <div className="md:col-span-8 space-y-4 text-left">
             <div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                About Me
+                About Sandesh Kenchugundi | Python Full Stack Developer
               </h2>
               <div className="w-12 h-1 bg-blue-600 rounded-full mt-1.5" />
             </div>

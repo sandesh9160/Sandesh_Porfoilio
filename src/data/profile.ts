@@ -3,11 +3,15 @@ export const profile = {
   title: "Python Full Stack Developer",
   subtitle: "Software Developer | Backend & API Specialist",
   location: "Hyderabad, India",
-  email: "sandeshkenchugundi01@gmail.com",
+  emailUser: "sandeshkenchugundi01",
+  emailDomain: "gmail.com",
+  email: ["sandeshkenchugundi01", "gmail.com"].join("@"),
   linkedin: "https://www.linkedin.com/in/sandesh-kenchugundi-076629245/",
   github: "https://github.com/sandesh9160",
   resumeFilename: "Sandesh-Kenchugundi-Resume.pdf",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://sandeshkenchugundiportfolio.netlify.app",
+  metaDescription:
+    "Sandesh Kenchugundi is a Python Full Stack Developer specializing in Django, Laravel 12, Next.js, and REST APIs. Explore portfolio projects, technical skills, and software engineering experience.",
   summary:
     "Python Full Stack Developer with an MCA and 7 months of professional experience at Techsprout AI Labs, contributing to production web and mobile applications. Skilled in Python, PHP, Laravel 12, Django, Next.js, Flutter, MySQL, and REST APIs, with hands-on experience in backend development, API integration, authentication, RBAC, payment workflows, and database-driven applications. Experienced in developing and maintaining recruitment and startup-focused platforms, implementing technical SEO, third-party API integrations, responsive interfaces, deployment, and production debugging.",
 } as const;

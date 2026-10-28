@@ -7,8 +7,8 @@ export default function Experience() {
     <section id="experience" className="py-14 sm:py-16 px-4 sm:px-6 bg-white border-b border-slate-200">
       <div className="max-w-5xl mx-auto">
         <SectionHeading
-          title="Professional Experience"
-          subtitle="Production software engineering experience at Techsprout AI Labs"
+          title="Software Developer Experience"
+          subtitle="Production software engineering and full-stack development at Techsprout AI Labs"
         />
 
         <div className="relative border-l-2 border-blue-500 ml-3 sm:ml-6 pl-5 sm:pl-8 space-y-8">

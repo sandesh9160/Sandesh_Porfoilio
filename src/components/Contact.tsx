@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, MapPin, Send, CheckCircle2, AlertCircle, MessageSquare } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { profile } from "@/data/profile";
@@ -9,13 +9,31 @@ import { GitHubIcon, LinkedInIcon } from "./Icons";
 export default function Contact() {
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [email, setEmail] = useState("");
+
+  // Obfuscate email dynamically on client mount to prevent spam bots from scraping raw HTML
+  useEffect(() => {
+    const user = profile.emailUser;
+    const domain = profile.emailDomain;
+    setEmail(`${user}@${domain}`);
+  }, []);
+
+  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const full = email || `${profile.emailUser}@${profile.emailDomain}`;
+    if (!email) {
+      setEmail(full);
+    }
+    window.location.href = `mailto:${full}`;
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormState("submitting");
 
+    const targetEmail = email || `${profile.emailUser}@${profile.emailDomain}`;
+
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${profile.email}`, {
+      const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,16 +64,18 @@ export default function Contact() {
     <section id="contact" className="py-14 sm:py-16 px-4 sm:px-6 bg-white border-b border-slate-200">
       <div className="max-w-5xl mx-auto">
         <SectionHeading
-          title="Contact Me"
-          subtitle="Feel free to reach out for software engineering roles or project collaborations"
+          title="Contact Sandesh Kenchugundi"
+          subtitle="Get in touch for Python Full Stack Developer and Software Engineer opportunities"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Contact Details & Quick Links (No phone number) */}
           <div className="lg:col-span-5 space-y-3.5">
             <a
-              href={`mailto:${profile.email}`}
+              href={email ? `mailto:${email}` : "#contact"}
+              onClick={handleEmailClick}
               className="compact-card p-4 flex items-center gap-3.5 group hover:border-blue-300 block"
+              aria-label="Send email to Sandesh Kenchugundi"
             >
               <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform flex-shrink-0">
                 <Mail size={18} />
@@ -65,7 +85,7 @@ export default function Contact() {
                   Email Address
                 </span>
                 <span className="text-xs sm:text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors truncate block">
-                  {profile.email}
+                  {email || `${profile.emailUser} [at] ${profile.emailDomain}`}
                 </span>
               </div>
             </a>
@@ -130,7 +150,16 @@ export default function Contact() {
               Send a Direct Message
             </h3>
             <p className="text-xs text-slate-500 mb-5 font-normal">
-              Or reach out directly at: <a href={`mailto:${profile.email}`} className="text-blue-600 underline font-medium">{profile.email}</a>
+              Or reach out directly at:{" "}
+              {email ? (
+                <a href={`mailto:${email}`} className="text-blue-600 underline font-medium">
+                  {email}
+                </a>
+              ) : (
+                <span className="text-blue-600 font-medium">
+                  {profile.emailUser} [at] {profile.emailDomain}
+                </span>
+              )}
             </p>
 
             {formState === "success" ? (
@@ -140,7 +169,7 @@ export default function Contact() {
                 </div>
                 <h4 className="text-sm font-bold text-slate-900">Message Sent Successfully!</h4>
                 <p className="text-xs text-slate-600">
-                  Thank you for reaching out! Your message has been sent directly to {profile.email}. I will get back to you promptly.
+                  Thank you for reaching out! Your message has been sent directly to {email || "my inbox"}. I will get back to you promptly.
                 </p>
                 <button
                   onClick={() => setFormState("idle")}
@@ -154,10 +183,12 @@ export default function Contact() {
                 name="contact"
                 method="POST"
                 data-netlify="true"
+                netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
                 className="space-y-3.5"
               >
                 <input type="hidden" name="form-name" value="contact" />
+                <input type="text" name="bot-field" className="hidden" aria-hidden="true" tabIndex={-1} />
 
                 <div>
                   <label
@@ -219,7 +250,7 @@ export default function Contact() {
                 {formState === "error" && (
                   <div className="p-2.5 rounded-lg bg-rose-50 border border-rose-200 text-rose-600 text-xs flex items-center gap-2">
                     <AlertCircle size={14} />
-                    <span>Failed to send. Please email me directly at {profile.email}</span>
+                    <span>Failed to send. Please email me directly at {email || `${profile.emailUser} [at] ${profile.emailDomain}`}</span>
                   </div>
                 )}
 

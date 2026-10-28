@@ -1,0 +1,4 @@
+# Canonical redirect: redirect www to apex domain
+https://www.sandeshkenchugundiportfolio.netlify.app/* https://sandeshkenchugundiportfolio.netlify.app/:splat 301!
+http://www.sandeshkenchugundiportfolio.netlify.app/* https://sandeshkenchugundiportfolio.netlify.app/:splat 301!
+http://sandeshkenchugundiportfolio.netlify.app/* https://sandeshkenchugundiportfolio.netlify.app/:splat 301!

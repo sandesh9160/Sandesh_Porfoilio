@@ -38,15 +38,14 @@ export default function Hero() {
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-2">
-          {profile.name}
+          <span className="block">{profile.name}</span>
+          <span className="block text-xl sm:text-2xl md:text-3xl font-bold text-blue-700 mt-2">
+            Python Full Stack Developer &amp; Software Engineer
+          </span>
         </h1>
 
-        <p className="text-lg sm:text-xl md:text-2xl font-bold text-blue-700 mb-3 max-w-2xl mx-auto">
-          Software Developer Intern | Laravel 12, Django, Next.js, MySQL
-        </p>
-
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto mb-6 font-normal">
-          Software Developer Intern with an MCA and production experience at Techsprout AI Labs building recruitment and startup platforms, scalable REST APIs, payment integrations, and responsive interfaces.
+          Software Developer with an MCA and production experience at Techsprout AI Labs building recruitment and startup platforms, scalable REST APIs with Laravel 12, Django, Next.js, and MySQL.
         </p>
 
         {/* Action buttons */}

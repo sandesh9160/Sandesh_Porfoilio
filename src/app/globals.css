@@ -95,17 +95,6 @@ body {
   animation-play-state: paused;
 }
 
-/* Animated Progress bar fill */
-@keyframes fillBar {
-  0% {
-    width: 0%;
-  }
-}
-
-.progress-fill {
-  animation: fillBar 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
 /* Focus styles */
 :focus-visible {
   outline: 2px solid #2563eb;
@@ -120,9 +109,5 @@ body {
   .marquee-track {
     animation: none;
     overflow-x: auto;
-  }
-
-  .progress-fill {
-    animation: none;
   }
 }

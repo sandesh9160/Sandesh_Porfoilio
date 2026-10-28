@@ -5,6 +5,25 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# 301 Redirect www to non-www canonical URL
+[[redirects]]
+  from = "https://www.sandeshkenchugundiportfolio.netlify.app/*"
+  to = "https://sandeshkenchugundiportfolio.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.sandeshkenchugundiportfolio.netlify.app/*"
+  to = "https://sandeshkenchugundiportfolio.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://sandeshkenchugundiportfolio.netlify.app/*"
+  to = "https://sandeshkenchugundiportfolio.netlify.app/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -14,7 +33,13 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
 [[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
   for = "/Sandesh-Kenchugundi-Resume.pdf"
   [headers.values]
     Content-Type = "application/pdf"
     Content-Disposition = "inline; filename=\"Sandesh-Kenchugundi-Resume.pdf\""
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
