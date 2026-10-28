@@ -13,12 +13,13 @@ export default function Contact() {
 
   // Obfuscate email dynamically on client mount to prevent spam bots from scraping raw HTML
   useEffect(() => {
-    const user = profile.emailUser;
-    const domain = profile.emailDomain;
-    setEmail(`${user}@${domain}`);
+    const timer = setTimeout(() => {
+      setEmail(`${profile.emailUser}@${profile.emailDomain}`);
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
-  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleEmailClick = () => {
     const full = email || `${profile.emailUser}@${profile.emailDomain}`;
     if (!email) {
       setEmail(full);

@@ -1,6 +1,18 @@
+
+import type { Metadata } from "next";
+
 import Link from "next/link";
 import { ArrowLeft, Home, Laptop, Download, Mail } from "lucide-react";
 import { profile } from "@/data/profile";
+
+export const metadata: Metadata = {
+  title: "404 - Page Not Found | Sandesh Kenchugundi",
+  description: "The page you are looking for does not exist on Sandesh Kenchugundi's portfolio.",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function NotFound() {
   return (

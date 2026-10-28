@@ -45,7 +45,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto mb-6 font-normal">
-          Software Developer with an MCA and production experience at Techsprout AI Labs building recruitment and startup platforms, scalable REST APIs with Laravel 12, Django, Next.js, and MySQL.
+          Python Full Stack Developer based in Hyderabad with an MCA and production experience at Techsprout AI Labs building recruitment and startup platforms, scalable REST APIs with Laravel 12, Django, Next.js, and MySQL.
         </p>
 
         {/* Action buttons */}
